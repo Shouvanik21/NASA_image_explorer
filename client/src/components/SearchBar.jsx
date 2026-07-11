@@ -1,14 +1,20 @@
 const SearchBar = ({ search, setSearch, searchImages }) => {
   return (
-    <div className="mt-[20px] flex justify-center items-start flex-col ">
+    <div className="flex flex-col justify-center items-center gap-4">
       <input
-        className="w-[250px] border-white-500"
         type="text"
-        placeholder="enter space image to search"
+        placeholder="Search Mars, Earth, Galaxy..."
         value={search}
-        onChange={(e)=>{setSearch(e.target.value)}}
+        onChange={(e) => setSearch(e.target.value)}
+        className="mb-6 w-full rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-gray-300 outline-none focus:border-sky-400"
       />
-      <button type="button" onClick={searchImages}>Search</button>
+
+      <button
+        onClick={searchImages}
+        className="w-full rounded-xl bg-sky-500 py-4 text-lg font-semibold transition hover:bg-sky-600"
+      >
+        Search Images
+      </button>
     </div>
   );
 };

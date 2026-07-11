@@ -1,4 +1,5 @@
 const axios = require("axios");
+const downloadModel=require("../models/Download")
 
 const getImages = async (req, res) => {
   try {
@@ -16,7 +17,7 @@ const getImages = async (req, res) => {
     // console.log(images.length)
 
     // //CONVERT NASA'S RESPONSE TO AN ARRAY
-    const formattedImages = images.slice(0, 5).map((image) => {
+    const formattedImages = images.slice(0, 6).map((image) => {
       return {
         title: image.data?.[0]?.title,
         description: image.data?.[0]?.description,
