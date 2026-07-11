@@ -26,13 +26,11 @@ const getImages = async (req, res) => {
     });
 
     res.json(formattedImages);
-  } catch {
-    (err) => {
-      console.log(err);
-      res.status(500).json({
-        message: "failed to fetch images",
-      });
-    };
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: "failed to fetch images",
+    });
   }
 };
 
