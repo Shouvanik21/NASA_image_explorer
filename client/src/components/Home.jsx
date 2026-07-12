@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import nebula from "../assets/nebula2.jpg"
-import SearchBar from "./SearchBar"
+import nebula from "../assets/nebula.jpg";
+import SearchBar from "./SearchBar";
 
 const Home = () => {
   const [search, setSearch] = useState("");
   const [images, setImages] = useState([]);
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const searchImages = async () => {
     try {
       console.log("Searching:", search);
-      const response = await api.get(`/${search}`);
+      const response = await api.get(`/api/auth/getimages/${search}`);
       console.log("API returned:", response.data);
       setImages(response.data);
 
-      navigate("/image-card",{state:response.data})
+      navigate("/image-page", { state: response.data });
     } catch (err) {
       console.log(err);
     }
@@ -56,7 +56,19 @@ const Home = () => {
         </div>
 
         {/* Right Side */}
-        <div className="w-[450px] rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur-md mr-[-10px]">
+        <div
+          className="
+w-[450px]
+rounded-3xl
+border
+border-white/10
+bg-white/5
+backdrop-blur-2xl
+p-10
+shadow-2xl
+shadow-black/40
+"
+        >
           <h2 className="mb-8 text-center text-3xl font-bold text-white">
             🚀 Space Image Explorer
           </h2>
@@ -67,8 +79,6 @@ const Home = () => {
             searchImages={searchImages}
           />
         </div>
-
-        
       </div>
     </div>
   );

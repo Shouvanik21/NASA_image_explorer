@@ -6,25 +6,28 @@ body{
     color:white;
     font-family:Inter,sans-serif;
 }
-#image{
-    background-image: url("./assets/nebulaimg3.jpg");
-    background-repeat: repeat-y;
-    background-position: cover;
+
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-::-webkit-scrollbar{
-    width:5px;
+::-webkit-scrollbar-track {
+  background: #0f172a;
 }
 
-::-webkit-scrollbar-track{
-    background:#020617;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #f97316,
+    #f59e0b
+  );
+  border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb{
-    background:#0ea5e9;
-    border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:#38bdf8;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #fb923c,
+    #fbbf24
+  );
 }
