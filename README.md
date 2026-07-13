@@ -1,1 +1,1 @@
-# NASA_image_downloader
+# NASA_image_explorer
