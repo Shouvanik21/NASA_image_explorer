@@ -24,18 +24,25 @@ const getImages = async (req, res) => {
 
     //GET ALL IMAGES
     const images = response.data.collection.items;
-    
+
     //SHUFFLE THE IMAGES ARRAY
     const shuffledImages = shuffle(images);
+    const randomImages = shuffledImages.slice(0, 6);
 
     // //CONVERT NASA'S RESPONSE TO AN ARRAY
-    const formattedImages = shuffledImages.slice(0, 6).map((image) => {
+    const formattedImages = randomImages.map((image) => {
       return {
         title: image.data?.[0]?.title,
         description: image.data?.[0]?.description,
         imageUrl: image.links?.[0]?.href,
         date: image.data?.[0]?.date_created,
       };
+    });
+
+    //STORE RANDOM IMAGES IN MONGODB
+    await downloadModel.create({
+      search: req.params.search,
+      images: formattedImages,
     });
 
     res.json(formattedImages);

@@ -1,12 +1,20 @@
 const mongoose=require("mongoose")
 
 const downloadSchema=new mongoose.Schema({
+
+    search: {
+      type: String,
+      required: true,
+    },
+
+    images:[{
+        
     title: {
         type: String,
         required: true
     },
 
-    category: {
+    description: {
         type: String,
         required: true
     },
@@ -16,10 +24,10 @@ const downloadSchema=new mongoose.Schema({
         required: true
     },
 
-    downloadedAt: {
+    date: {
         type: Date,
         default: Date.now
-    }
+    }}]
 })
 
 const downloadModel=mongoose.model("Download",downloadSchema)
